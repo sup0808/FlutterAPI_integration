@@ -1,3 +1,4 @@
+import 'package:flutterapi_integration/model/UserData.dart';
 import 'package:sqflite/sqlite_api.dart';
 import 'package:sqflite/sql.dart';
 import 'package:sqflite/sqflite.dart';
@@ -44,5 +45,18 @@ class DatabaseServices {
     print("demo addUser-- db $db");
     await db?.insert(
         _UserTableName, {_UserID: 0, _UserName: name, _UserHeight: 0.8});
+  }
+
+  Future<List<UserData>?> getUsers() async {
+    final db = await database;
+    final data = await db?.query(_UserTableName);
+    List<UserData>? users = data
+        ?.map((item) => UserData(
+            id: item['id'] as int,
+            name: item['name'] as String,
+            height: item['height'] as double))
+        .toList();
+    print("demo data $users");
+    return users;
   }
 }

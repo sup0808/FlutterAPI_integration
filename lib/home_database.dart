@@ -23,7 +23,8 @@ Widget AddUserButton() {
   return FloatingActionButton(
     onPressed: () {
       print("demo click");
-      _databaseServices.addUser("supriya");
+      _databaseServices.addUser("arvind");
+      _databaseServices.getUsers();
     },
     child: Icon(Icons.add),
   );
