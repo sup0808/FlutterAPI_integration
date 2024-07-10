@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutterapi_integration/UserDashboard.dart';
 import 'package:flutterapi_integration/loginPage.dart';
 
+import 'home_database.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  LoginPage(),
+      home:  home_database(),
     );
   }
 }
